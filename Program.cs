@@ -13,15 +13,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseHttpsRedirection();// middleware firt check there i https redirection
+app.UseStaticFiles();//check the static folder in wwwroot folder.
 
-app.UseRouting();
+app.UseRouting();//built in middle ware middle ware are tw types -built in middle ware and custom middle ware
 
-app.UseAuthorization();
+app.UseAuthorization();//what is middle ware?? middleware are simple function thats are used to intercept the request or funnctions
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");//it check for home controller and index action  id is optional thats why its having question
 
-app.Run();
+app.Run();//to serve a request we should have routing middle ware and run 
